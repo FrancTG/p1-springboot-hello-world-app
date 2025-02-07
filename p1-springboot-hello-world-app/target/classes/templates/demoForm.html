@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+  <h1>Ejercicio 1</h1>
+  <h2>Franc Tauste González</h2>
+  <form th:action="@{/demoForm}" th:object="${demoData}" method="post">
+    <label for="palindrome">Comprobar si la palabra es Palíndroma</label>
+    <input type="text" id="palindrome" name="palindrome" placeholder="Rallar, salas, reconocer, ...">
+    <p th:if="${#fields.hasErrors('palindrome')}" th:errors="*{palindrome}"></p>
+    <hr>
+    <label for="evenNum">Comprobar si el número es par</label>
+    <input type="number" id="evenNum" name="evenNum" placeholder="2, 4, 6, 8, ...">
+    <p th:if="${#fields.hasErrors('evenNum')}" th:errors="*{evenNum}"></p>
+    <hr>
+    <h3>Comprobar si el primero número es la raíz cuadrada del segundo número</h3>
+    <label for="sqrt">Primer número</label>
+    <input type="number" id="sqrt" name="sqrt" placeholder="2">
+    <p th:if="${#fields.hasErrors('sqrt')}" th:errors="*{sqrt}"></p>
+    <label for="sqrtChk">Segundo número</label>
+    <input type="number" id="sqrtChk" name="sqrtChk" placeholder="4">
+    <p th:if="${#fields.hasErrors('sqrtChk')}" th:errors="*{sqrtChk}"></p>
+    <hr>
+    <label for="calculator">Calcula el resultado de una operación</label>
+    <input type="text" id="calculator" name="calculator" placeholder="1 + 2 - 3 * 4">
+    <p th:if="${#fields.hasErrors('calculator')}" th:errors="*{calculator}"></p>
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+</html>
