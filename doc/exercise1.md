@@ -47,5 +47,10 @@ devuelve el resultado que podemos comprobar para saber si es correcto.
 
 ### 4. Calculadora
 
-En este caso es una calculadora sencilla que calcula una serie de números y operaciones
-en linea, sin paréntesis ni operaciones complejas. Para ello, 
+En este caso es una calculadora sencilla que calcula una serie de números y operaciones en linea, sin paréntesis ni operaciones complejas.
+
+Para realizar esta función primero **eliminamos todos los espacios en blanco** del String. Luego, **recorremos el String en un bucle para buscar el primero numéro** de la operación hasta encontrar un simbolo de operación (+, -, *, /), lo que nos indicará el final del primer número. El primer número lo guardamos en una variable llamada **result** que usaremos para realizar las operaciones que se encuentran.
+
+Ahora este siguiente proceso lo haremos en **otro bucle hasta el final del string**, lo que permite el uso de varias operaciones en linea.
+
+**Guardamos el último simbolo de operación** encontrado para realizar la operación posteriormente, **buscamos el siguiente número** hasta que aparezca otro simbolo de operación (o final del string), que nos indica el final de ese número y **realizamos la operación**.
