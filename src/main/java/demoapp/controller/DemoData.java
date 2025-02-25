@@ -1,6 +1,9 @@
 package demoapp.controller;
 
+import javax.validation.constraints.Size;
+
 public class DemoData {
+
 
     private String palindrome;
     private int evenNum;

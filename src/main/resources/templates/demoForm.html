@@ -5,17 +5,21 @@
 </head>
 <body>
   <h1>Ejercicio 1</h1>
-  <h2>Franc Tauste González</h2>
+  <p>Franc Tauste González</p>
   <hr>
   <form th:action="@{/demoForm}" th:object="${demoData}" method="post">
+    <h2>Palabras palíndromas</h2>
     <label for="palindrome">Comprobar si la palabra es Palíndroma</label>
     <input type="text" id="palindrome" name="palindrome" placeholder="Rallar, salas, reconocer, ...">
     <p th:if="${#fields.hasErrors('palindrome')}" th:errors="*{palindrome}"></p>
+    <p th:text="'¿Es palindromo? ' + ${isPalindrome}" ></p>
     <hr>
+    <h2>Números pares</h2>
     <label for="evenNum">Comprobar si el número es par</label>
     <input type="number" id="evenNum" name="evenNum" placeholder="2, 4, 6, 8, ...">
     <p th:if="${#fields.hasErrors('evenNum')}" th:errors="*{evenNum}"></p>
     <hr>
+    <h2>Raíz cuadrada</h2>
     <h3>Comprobar si el primero número es la raíz cuadrada del segundo número</h3>
     <label for="sqrt">Primer número</label>
     <input type="number" id="sqrt" name="sqrt" placeholder="2">
@@ -24,6 +28,7 @@
     <input type="number" id="sqrtChk" name="sqrtChk" placeholder="4">
     <p th:if="${#fields.hasErrors('sqrtChk')}" th:errors="*{sqrtChk}"></p>
     <hr>
+    <h2>Calculadora</h2>
     <label for="calculator">Calcula el resultado de una operación sencilla</label>
     <input type="text" id="calculator" name="calculator" placeholder="1 + 2 - 3 * 4">
     <p th:if="${#fields.hasErrors('calculator')}" th:errors="*{calculator}"></p>

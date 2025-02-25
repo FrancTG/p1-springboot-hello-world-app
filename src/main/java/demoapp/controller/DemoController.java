@@ -24,10 +24,6 @@ public class DemoController {
 
     @PostMapping("/demoForm")
     public String checkPersonInfo(@ModelAttribute @Valid DemoData demoData, BindingResult bindingResult, Model model) {
-        /*if (bindingResult.hasErrors()) {
-            return "demoForm";
-        }*/
-
         model.addAttribute("isPalindrome", service.isPalindrome(demoData.getPalindrome()));
         model.addAttribute("isEvenNum", service.isEvenNum(demoData.getEvenNum()));
         model.addAttribute("isSqrt", service.isSqrt(demoData.getSqrt(), demoData.getSqrtChk()));

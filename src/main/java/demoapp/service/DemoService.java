@@ -33,27 +33,62 @@ public class DemoService {
 
     public double calculator(String operation) {
         double result = 0;
+        String auxNum = "";
+        char operator = 'p';
+
         if (operation.isEmpty()) {
             return 0;
         }
+
         operation = operation.replaceAll("\\s","");
-        result = Character.getNumericValue(operation.charAt(0));
-        for (int i = 2; i < operation.length(); i*=2) {
-            switch (operation.charAt(i-1)) {
+
+        int i = 0;
+        while(!isOperator(operation.charAt(i))) {
+            auxNum += operation.charAt(i);
+            i++;
+        }
+        result = Integer.parseInt(auxNum);
+
+        while (i < operation.length()) {
+            operator = operation.charAt(i);
+            i++;
+            auxNum = "";
+
+            while (i < operation.length() && !isOperator(operation.charAt(i))) {
+                auxNum += operation.charAt(i);
+                i++;
+            }
+
+            switch (operator) {
+                case '+':
+                    result += Integer.parseInt(auxNum);
+                    break;
                 case '-':
-                    result = result - Character.getNumericValue(operation.charAt(i));
+                    result -= Integer.parseInt(auxNum);
                     break;
                 case '*':
-                    result = result * Character.getNumericValue(operation.charAt(i));
+                    result *= Integer.parseInt(auxNum);
                     break;
                 case '/':
-                    result = result / Character.getNumericValue(operation.charAt(i));
+                    result /= Integer.parseInt(auxNum);
                     break;
                 default:
-                    result = result + Character.getNumericValue(operation.charAt(i));
-
             }
         }
+
         return result;
+    }
+
+    boolean isOperator(char posibleOperator) {
+        switch (posibleOperator) {
+            case '-':
+            case '+':
+            case '*':
+            case '/':
+            case ' ':
+                return true;
+            default:
+                return false;
+        }
     }
 }
